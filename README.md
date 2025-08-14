@@ -14,24 +14,6 @@ This repository serves as my personal algorithm codex - a growing collection of 
 - **Interview Preparation**: Build a comprehensive toolkit for technical interviews
 - **Continuous Growth**: Expand my knowledge into advanced algorithmic territories
 
-## Repository Structure
-
-```
-algorithm-codex/
-├── string-algorithms/
-│   ├── rabin-karp/
-│   │   ├── README.md
-│   │   ├── implementation.py
-│   │   ├── tests.py
-│   └── ...
-├── graph-algorithms/
-├── dynamic-programming/
-├── mathematical-algorithms/
-├── data-structures/
-├── system-design-algorithms/
-└── utils/
-    └── test_runner.py
-```
 
 ## Completed Algorithms
 - [x] **Radix Sort** - Non-comparative
