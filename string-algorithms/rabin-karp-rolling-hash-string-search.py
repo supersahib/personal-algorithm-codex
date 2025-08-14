@@ -30,7 +30,7 @@ LeetCode Problems:
 
 class RabinKarp:
     def __init__(self, base=256, prime=101):
-        self.base = base
+        self.base = base # radix of our polynomial hash function (ie base our our number system. we have 256 unique digits/symbols)
         self.prime = prime
 
     def search(self, text, pattern):
@@ -48,22 +48,20 @@ class RabinKarp:
         if not pattern or len(pattern) > len(text):
             return []
         
-        base = 256 # radix of our polynomial hash function (ie base our our number system. we have 256 unique digits/symbols)
-        prime = 101 
         m, n = len(text), len(pattern)
         result = []
 
         pattern_hash, window_hash = 0,0
         # compute initial hashes
         for i in range(n):
-          pattern_hash = (pattern_hash * base + ord(pattern[i])) % prime
-          window_hash = (window_hash * base + ord(text[i])) % prime
+          pattern_hash = (pattern_hash * self.base + ord(pattern[i])) % self.prime
+          window_hash = (window_hash * self.base + ord(text[i])) % self.prime
         
         #precompute h = base^(m-1) % prime --> we do this to reuse each window. 
         # this is basically multiplier for left most character 
         h = 1 
         for i in range(n-1):
-            h = (h * base) % prime
+            h = (h * self.base) % self.prime
 
         #sliding window
         for i in range(m - n + 1):
@@ -77,12 +75,12 @@ class RabinKarp:
           #rolling hash
           if i < m - n:
               #remove leftmost
-              window_hash  = (window_hash - ord(text[i]) * h) % prime
-              window_hash = (window_hash * base + ord(text[i+n])) % prime
+              window_hash  = (window_hash - ord(text[i]) * h) % self.prime
+              window_hash = (window_hash * self.base + ord(text[i+n])) % self.prime
 
               # Handle negative values from modulo
               if window_hash < 0:
-                  window_hash += prime
+                  window_hash += self.prime
         return result
 
 if __name__ == "__main__":
