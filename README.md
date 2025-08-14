@@ -34,8 +34,10 @@ algorithm-codex/
 ```
 
 ## Completed Algorithms
+- [x] **Radix Sort** - Non-comparative
+- [x] **Bucket Sort** - Distribution sort
 
-## Algorithms ([x] = completed)
+## To-Do Algorithms 
 ### Sorting & Searching
 - [ ] **Binary Search** - And variations
 - [ ] **QuickSort** - Randomized pivot
