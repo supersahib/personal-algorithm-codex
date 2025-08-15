@@ -135,7 +135,7 @@ Key operation is the merge. We call merge(A,p,q,r)
 
 **Key Insights:**
 
-### When to Use MergeSort**
+### When to Use MergeSort
 
 **Perfect for:**
 - Linked lists (O(1) space, no random access needed)
@@ -150,11 +150,69 @@ Key operation is the merge. We call merge(A,p,q,r)
 - Data is nearly sorted (consider TimSort instead)
 
 
-## TODO
+## Quick Sort
 
-- Handle negative numbers in Radix Sort
-- Implement Bucket Sort
-- Implement Counting Sort
-- Implement comparison-based sorts (QuickSort, MergeSort)
-- Add performance benchmarks
-- Implement MSD Radix Sort
+Quicksort, like merge sort, applies the divide-and-conquer paradigm
+
+**Divide** 
+- Partition (rearrange) the array `A[p..r]` into two subarrays `A[p..q-1]` and `A[q+1..r]` such that:
+  - Each element of `A[p..q-1]` is less than or equal to `A[q]` 
+  - `A[q]` is less than or equal to each element of `A[q+1..r]`
+- Compute index q as part of partitioning
+
+**Conquer**
+- sort the two subarrays `A[p..q-1]` and `[A+1..r]` by recursive calls to quicksort
+
+**Combine**
+- because subarrays already sorted, no work needed to combin them. 
+- entire array `A[p..r]` is sorted
+
+### Components
+
+**`quicksort(A, p, r)`**
+- Base case: if `p ≥ r`, return (0 or 1 elements)
+- Otherwise: partition, then recursively sort left and right subarrays
+
+**`partition(A, p, r)`** (Lomuto scheme)
+- Selects `x = A[r]` as the **pivot** element
+- Rearranges `A[p..r]` in place maintaining four regions during scan:
+  1. `A[p..i]` - elements ≤ pivot
+  2. `A[i+1..j-1]` - elements > pivot
+  3. `A[j..r-1]` - unexamined elements
+  4. `A[r]` - pivot
+- Returns final pivot position q
+
+### Complexity
+
+**Time Complexity:**
+- Best/Average: O(n log n) - balanced partitions `T(n) = 2T(n/2) + O(n)`
+- Worst: O(n²) - unbalanced partitions `T(n) = T(n-1) + O(n)`
+
+**Space Complexity:** O(log n) average, O(n) worst case (recursion stack)
+
+### Key Properties
+- **In-place**: Unlike merge sort, requires no auxiliary arrays
+- **Unstable**: May change relative order of equal elements
+- **Cache-efficient**: Good locality of reference
+- **Randomized version**: Choosing random pivot gives expected O(n log n) for all inputs
+
+### Randomized QuickSort
+
+**Problem with Fixed Pivot:** 
+- Sorted or nearly-sorted arrays cause O(n²) behavior
+- Adversary can construct worst-case inputs knowing pivot choice
+
+**Solution: Randomized Partition**
+
+The `partition_randomized` function modifies standard partition with 3 simple steps:
+1. **Select random pivot**: Choose random index `i` from range `[p, r]`
+2. **Swap to end**: Exchange `arr[i]` with `arr[r]` 
+3. **Standard partition**: Call regular `partition(arr, p, r)`
+
+```python
+def partition_randomized(arr, p, r):
+    i = random.randint(p, r)      # Random pivot from current range
+    arr[r], arr[i] = arr[i], arr[r]  # Move to standard position
+    return partition(arr, p, r)       # Reuse existing logic
+
+## TODO
