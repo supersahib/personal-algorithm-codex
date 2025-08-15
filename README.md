@@ -19,13 +19,14 @@ This repository serves as my personal algorithm codex - a growing collection of 
 - [x] **Radix Sort** - Non-comparative
 - [x] **Bucket Sort** - Distribution sort
 - [x] **MergeSort** - Stable sorting
+- [x] **QuickSort** - Normal & Randomized pivot
 - [x] **Rabin-Karp** - Rolling hash pattern matching
 
 
 ## To-Do Algorithms 
 ### Sorting & Searching
 - [ ] **Binary Search** - And variations
-- [ ] **QuickSort** - Randomized pivot
+- [x] **QuickSort** - Randomized pivot
 - [x] **MergeSort** - Stable sorting
 - [ ] **HeapSort** - In-place sorting
 - [x] **Radix Sort** - Non-comparative

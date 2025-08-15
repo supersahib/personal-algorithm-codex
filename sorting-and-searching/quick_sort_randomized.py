@@ -1,35 +1,5 @@
 import random
 """
-Algorithm: QuickSort
-Time Complexity: 
-    - Best/Average: O(n log n) - T(n) = 2T(n/2) + O(n)
-    - Worst: O(n²) - T(n) = T(n-1) + O(n)
-Space Complexity: O(log n) - recursion stack
-Category: Comparison-based, Divide-and-Conquer, In-place, Unstable Sort
-
-Description:
-    Partition array around pivot p where elements ≤ p go left, elements > p go right.
-    Pivot reaches final position after partition. Recursively sort subarrays.
-    
-    The Partition Logic:
-
-    Keep a boundary i that separates elements ≤ pivot from elements > pivot
-    Scan array with j: when you find element ≤ pivot, swap it to position i+1 and expand the boundary
-    After scan, swap pivot to position i+1 (right after the ≤ region)
-    Return pivot's final position
-
-Use Cases:
-    - General purpose sorting (standard library default)
-    - Systems requiring cache locality (in-place)
-    - When average-case O(n log n) sufficient
-
-LeetCode Problems:
-    - Problem #912: Sort an Array
-    - Problem #215: Kth Largest Element (QuickSelect variant)
-    - Problem #973: K Closest Points to Origin (QuickSelect)
-    - Problem #75: Sort Colors (3-way partitioning)
-    - Problem #324: Wiggle Sort II (partitioning)
-    - Problem #347: Top K Frequent Elements (QuickSelect)
 """
 
 class QuickSortRandomized:
