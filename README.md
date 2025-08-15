@@ -18,12 +18,15 @@ This repository serves as my personal algorithm codex - a growing collection of 
 ## Completed Algorithms
 - [x] **Radix Sort** - Non-comparative
 - [x] **Bucket Sort** - Distribution sort
+- [x] **MergeSort** - Stable sorting
+- [x] **Rabin-Karp** - Rolling hash pattern matching
+
 
 ## To-Do Algorithms 
 ### Sorting & Searching
 - [ ] **Binary Search** - And variations
 - [ ] **QuickSort** - Randomized pivot
-- [ ] **MergeSort** - Stable sorting
+- [x] **MergeSort** - Stable sorting
 - [ ] **HeapSort** - In-place sorting
 - [x] **Radix Sort** - Non-comparative
 - [ ] **Counting Sort** - Integer sorting
@@ -31,7 +34,7 @@ This repository serves as my personal algorithm codex - a growing collection of 
 - [ ] **QuickSelect** - Kth element
 
 ### String Algorithms
-- [ ] **Rabin-Karp** - Rolling hash pattern matching
+- [x] **Rabin-Karp** - Rolling hash pattern matching
 - [ ] **KMP (Knuth-Morris-Pratt)** - Efficient string matching with failure function
 - [ ] **Boyer-Moore** - Efficient string matching
 - [ ] **Z-Algorithm** - Pattern matching alternative
