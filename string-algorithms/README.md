@@ -50,8 +50,48 @@ Uses rolling polynomial hash to find pattern occurrences in text efficiently.
 - Finding repeated substrings
 - Multiple pattern search (simpler than Aho-Corasick)
 
-## TODO
 
+## Trie (Prefix Tree)
+
+Tree structure where each node represents a character, enabling fast prefix operations and word lookups.
+
+**Components:**
+- `TrieNode`: Contains children dict/array and end-of-word flag
+- `insert(word)`: Add word by creating path of nodes
+- `search(word)`: Traverse path and verify word exists
+- `starts_with(prefix)`: Check if any word has given prefix
+
+**Process:**
+1. Start at root node
+2. For each character, create child node if missing
+3. Mark last node as end-of-word
+4. Search traverses path, checking nodes exist
+5. Prefix search just verifies path exists (ignores end-of-word)
+
+**Complexity:**
+- Insert: O(m) where m = word length
+- Search: O(m)
+- Space: O(total characters × alphabet size) worst case
+- Better than hash table for prefix operations
+
+**Key Insights:**
+- Common prefixes share nodes (memory efficient for dictionaries)
+- Can use array[26] for lowercase-only (faster) or dict for any char (flexible)
+- Supports wildcards and regex patterns with modified search
+- Foundation for autocomplete and spell checkers
+
+**Use Cases:**
+- Autocomplete/type-ahead
+- Spell checkers
+- IP routing tables (binary trie)
+- Phone directories
+- Word games (valid word checking)
+
+### Extensions:
+- **Autocomplete**: DFS from prefix node to collect all completions
+- **Wildcard Search**: Backtracking for pattern matching
+
+## TODO
 ### Pattern Matching
 - [ ] **KMP**: Failure function for O(n+m) guaranteed
 - [ ] **Boyer-Moore**: Skip characters using bad character/good suffix
@@ -68,3 +108,4 @@ Uses rolling polynomial hash to find pattern occurrences in text efficiently.
 - [ ] **Suffix Tree**: O(n) construction, powerful queries
 - [ ] **Burrows-Wheeler Transform**: Compression preprocessing
 - [ ] **Rope Data Structure**: Efficient string concatenation
+

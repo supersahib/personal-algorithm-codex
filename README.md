@@ -21,7 +21,7 @@ This repository serves as my personal algorithm codex - a growing collection of 
 - [x] **MergeSort** - Stable sorting
 - [x] **QuickSort** - Normal & Randomized pivot
 - [x] **Rabin-Karp** - Rolling hash pattern matching
-
+- [x] **Trie** - Prefix tree (Revisit to implement auto-complete Trie)
 
 ## To-Do Algorithms 
 ### Sorting & Searching
@@ -43,7 +43,7 @@ This repository serves as my personal algorithm codex - a growing collection of 
 - [ ] **Manacher's Algorithm** - Finding palindromes in linear time
 - [ ] **Suffix Array** - String processing
 - [ ] **Suffix Tree** - Advanced string operations
-- [ ] **Trie** - Prefix tree
+- [x] **Trie** - Prefix tree
 - [ ] **Rolling Hash Applications** - Various uses
 - [ ] **Burrows-Wheeler Transform** - Compression preprocessing
 
