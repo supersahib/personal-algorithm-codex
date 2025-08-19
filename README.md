@@ -22,7 +22,7 @@ This repository serves as my personal algorithm codex - a growing collection of 
 - [x] **QuickSort** - Normal & Randomized pivot
 - [x] **Rabin-Karp** - Rolling hash pattern matching
 - [x] **Trie** - Prefix tree (Revisit to implement auto-complete Trie)
-
+- [x] **BFS (Breadth-First Search)** - Level-order traversal
 ## To-Do Algorithms 
 ### Sorting & Searching
 - [ ] **Binary Search** - And variations
@@ -47,9 +47,43 @@ This repository serves as my personal algorithm codex - a growing collection of 
 - [ ] **Rolling Hash Applications** - Various uses
 - [ ] **Burrows-Wheeler Transform** - Compression preprocessing
 
+
+### Dynamic Programming
+- [ ] **Kadane's Algorithm** - Maximum subarray sum
+- [ ] **0/1 Knapsack** - Classic optimization
+- [ ] **Unbounded Knapsack** - Unlimited items
+- [ ] **Longest Common Subsequence** - String comparison
+- [ ] **Longest Increasing Subsequence** - O(n log n) solution
+- [ ] **Edit Distance** - Levenshtein distance
+- [ ] **Coin Change** - Minimum coins problem
+- [ ] **Matrix Chain Multiplication** - Optimization problem
+- [ ] **Palindrome Partitioning** - String splitting
+- [ ] **Rod Cutting** - Maximum profit
+- [ ] **Egg Dropping** - Classic puzzle
+- [ ] **Word Break** - String segmentation
+- [ ] **Bitmask DP** - Subset problems
+- [ ] **Digit DP** - Number theory problems
+- [ ] **DP on Trees** - Tree optimization
+
+
+### Trees & Data Structures
+- [ ] **Binary Tree Traversals** - All variations
+- [ ] **Binary Search Tree** - Operations
+- [ ] **AVL Tree** - Self-balancing BST
+- [ ] **Red-Black Tree** - Another balancing approach
+- [ ] **B-Tree** - Database indexing
+- [ ] **Segment Tree** - Range queries
+- [ ] **Fenwick Tree (BIT)** - Prefix sums
+- [ ] **Heap/Priority Queue** - Min and Max
+- [ ] **LRU Cache** - Eviction policy
+- [ ] **LFU Cache** - Frequency-based eviction
+- [ ] **Treap** - Randomized BST
+- [ ] **Skip List** - Probabilistic structure
+- [ ] **Persistent Data Structures** - Version history
+
 ### Graph Algorithms
 - [ ] **DFS (Depth-First Search)** - Graph traversal
-- [ ] **BFS (Breadth-First Search)** - Level-order traversal
+- [x] **BFS (Breadth-First Search)** - Level-order traversal
 - [ ] **Dijkstra's Algorithm** - Single source shortest path
 - [ ] **Bellman-Ford** - Handles negative edges
 - [ ] **Floyd-Warshall** - All pairs shortest path
@@ -69,37 +103,6 @@ This repository serves as my personal algorithm codex - a growing collection of 
 - [ ] **Hierholzer's Algorithm** - Eulerian path
 - [ ] **Cycle Detection** - Finding cycles
 
-### Dynamic Programming
-- [ ] **Kadane's Algorithm** - Maximum subarray sum
-- [ ] **0/1 Knapsack** - Classic optimization
-- [ ] **Unbounded Knapsack** - Unlimited items
-- [ ] **Longest Common Subsequence** - String comparison
-- [ ] **Longest Increasing Subsequence** - O(n log n) solution
-- [ ] **Edit Distance** - Levenshtein distance
-- [ ] **Coin Change** - Minimum coins problem
-- [ ] **Matrix Chain Multiplication** - Optimization problem
-- [ ] **Palindrome Partitioning** - String splitting
-- [ ] **Rod Cutting** - Maximum profit
-- [ ] **Egg Dropping** - Classic puzzle
-- [ ] **Word Break** - String segmentation
-- [ ] **Bitmask DP** - Subset problems
-- [ ] **Digit DP** - Number theory problems
-- [ ] **DP on Trees** - Tree optimization
-
-### Trees & Data Structures
-- [ ] **Binary Tree Traversals** - All variations
-- [ ] **Binary Search Tree** - Operations
-- [ ] **AVL Tree** - Self-balancing BST
-- [ ] **Red-Black Tree** - Another balancing approach
-- [ ] **B-Tree** - Database indexing
-- [ ] **Segment Tree** - Range queries
-- [ ] **Fenwick Tree (BIT)** - Prefix sums
-- [ ] **Heap/Priority Queue** - Min and Max
-- [ ] **LRU Cache** - Eviction policy
-- [ ] **LFU Cache** - Frequency-based eviction
-- [ ] **Treap** - Randomized BST
-- [ ] **Skip List** - Probabilistic structure
-- [ ] **Persistent Data Structures** - Version history
 
 ### Mathematical Algorithms
 - [ ] **Euclidean Algorithm** - GCD
@@ -140,12 +143,22 @@ This repository serves as my personal algorithm codex - a growing collection of 
 - [ ] **Run-Length Encoding** - Simple compression
 - [ ] **Arithmetic Coding** - Entropy encoding
 
+
+
+### Classic Algorithms
+- [ ] **Dutch National Flag** - 3-way partition
+- [ ] **Moore's Voting** - Majority element
+- [ ] **Tortoise and Hare** - Cycle detection
+- [ ] **Morris Traversal** - O(1) space tree traversal
+- [ ] **Celebrity Problem** - Graph modeling
+
 ### Game Theory & Optimization
 - [ ] **Minimax** - Game tree evaluation
 - [ ] **Alpha-Beta Pruning** - Search optimization
 - [ ] **Monte Carlo Tree Search** - Game AI
 - [ ] **Genetic Algorithm** - Evolutionary approach
 - [ ] **Simulated Annealing** - Probabilistic optimization
+
 
 ## Implementation Template
 
