@@ -103,7 +103,120 @@ def shortest_path(self, start_key, end_key) -> Optional[List]:
 - Social network analysis (degrees of separation)
 - Puzzle solving (finding minimum moves)
 
+## Dijkstra's Algorithm (weighted graphs)
 
+### Algorithm Overview
+- Solves single-source shortest-paths problem on a weighted, directed graph G = (V,E)
+    - All edge weights must be non-negative
+- Dijkstra's tells us **shortest path from one node to every other node**
+- Greedy algorithm that builds up shortest paths in order of increasing distance from source
+
+### Core Concept
+Dijkstra's algorithm grows a "cloud" of vertices with known shortest paths, expanding outward from the source by always choosing the closest unprocessed vertex.
+
+### Algorithm Mechanics
+
+#### Data Structures
+- **Set S**: Vertices whose final shortest-path weights from source `s` have been determined
+- **Priority Queue Q**: Vertices in `V-S`, keyed by their current distance estimates
+- **dist[v]**: Current shortest known distance from source to vertex v
+- **parent[v]**: Previous vertex on shortest path (for path reconstruction)
+
+#### The Relaxation Operation
+Central to shortest path algorithms - attempts to improve the shortest path to a vertex:
+
+Goal of Relaxation: When processing a vertex, check if going through this vertex offers a shorter path to each of its neighbors than currently known.
+
+```
+RELAX(u, v, weight):
+    if dist[u] + weight(u,v) < dist[v]:
+        dist[v] = dist[u] + weight(u,v)
+        parent[v] = u
+```
+This asks: "Is the path to v through u shorter than the current known path to v?"
+
+What this means:
+
+For each neighbor v of current vertex u
+Calculate: "What would the distance be if I went to v through u?"
+If this path is shorter than the currently known path to v, update v's distance
+This propagates shortest distances outward from the source
+
+Why "Relaxation"? The term comes from "relaxing" or "loosening" the distance constraints - if we find a better path, we update our estimate to this improved value.
+
+### Detailed Algorithm Steps
+
+#### 1. Initialization
+```
+- Set dist[s] = 0 (source has distance 0 to itself)
+- Set dist[v] = ∞ for all other vertices v
+- Set parent[v] = NULL for all vertices
+- Add all vertices to priority queue Q
+```
+
+#### 2. Main Loop
+```
+while Q is not empty:
+    u = EXTRACT-MIN(Q)  // Vertex with minimum distance
+    Add u to S          // Mark as processed
+    
+    for each neighbor v of u:
+        RELAX(u, v, weight(u,v))
+        if distance was improved:
+            DECREASE-KEY(Q, v, new_distance)
+```
+
+#### 3. Termination
+- Algorithm terminates when Q is empty
+- All reachable vertices now have correct shortest distances in dist[]
+- Can terminate early if only need path to specific target
+
+### Why It Works
+
+#### The Greedy Property
+When we extract vertex `u` with minimum distance from Q, that distance is guaranteed to be the shortest possible path from source to u.
+
+**Proof Intuition:**
+1. Assume u has minimum distance d among unprocessed vertices
+2. All other unprocessed vertices have distance ≥ d
+3. All edges have non-negative weights
+4. Therefore, any path to u through another unprocessed vertex would have length ≥ d
+5. So the current distance to u must be optimal
+
+#### Algorithm Invariant
+**At the start of each iteration:**
+- For all vertices in S, dist[v] = δ(s,v) (the true shortest path distance)
+- For all vertices in Q, dist[v] is the shortest path using only vertices in S as intermediates
+
+### Critical Implementation Details
+
+#### Why Non-Negative Weights Are Required
+With negative edges, a vertex we've already processed might later get a shorter path through vertices we haven't seen yet, breaking the greedy assumption.
+
+**Example of failure with negative edge:**
+```
+    1      -3
+s ----> a ----> b
+ \             /
+  \___________/
+        2
+```
+Dijkstra's would assign dist[b] = 2, but the true shortest path s→a→b has length -2.
+
+#### The Visited Check
+Once a vertex is extracted from the priority queue with minimum distance, we never need to process it again - its shortest path is finalized.
+
+#### Priority Queue Duplicates
+In implementations using binary heap:
+- A vertex might exist in queue multiple times with different distances
+- The visited check ensures we only process the first (shortest) occurrence
+- Alternative: use indexed priority queue with decrease-key operation
+
+### Implementation Tips
+1. Use visited set to avoid reprocessing vertices
+2. Can use simple array instead of heap for dense graphs
+3. For single destination, can stop early when target is reached
+4. Store parent pointers during relaxation fo
 
 # To Implement
 
